@@ -47,7 +47,6 @@ export function ProductDetailsScreen({ route }: ProductDetailsScreenProps) {
           <Image
             source={{ uri: product.image }}
             style={styles.image}
-            resizeMode="contain"
             accessibilityLabel={`Image of ${product.title}`}
             accessibilityIgnoresInvertColors
           />
@@ -128,6 +127,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     aspectRatio: 1,
+    resizeMode: 'contain',
   },
   favorite: {
     position: 'absolute',

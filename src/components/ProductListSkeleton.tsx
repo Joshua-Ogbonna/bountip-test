@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import { Animated, Platform, StyleSheet, View } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 
 function SkeletonCard({ opacity }: { opacity: Animated.Value }) {
@@ -31,10 +31,11 @@ export function ProductListSkeleton() {
   const opacity = useRef(new Animated.Value(0.5)).current;
 
   useEffect(() => {
+    const useNativeDriver = Platform.OS !== 'web';
     const pulse = Animated.loop(
       Animated.sequence([
-        Animated.timing(opacity, { toValue: 1, duration: 700, useNativeDriver: true }),
-        Animated.timing(opacity, { toValue: 0.5, duration: 700, useNativeDriver: true }),
+        Animated.timing(opacity, { toValue: 1, duration: 700, useNativeDriver }),
+        Animated.timing(opacity, { toValue: 0.5, duration: 700, useNativeDriver }),
       ]),
     );
     pulse.start();
