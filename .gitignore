@@ -36,6 +36,14 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# test coverage output
+coverage/
+
+# local tooling
+.claude/
+CLAUDE.md
+AGENTS.md
+
 # generated native folders
 /ios
 /android
